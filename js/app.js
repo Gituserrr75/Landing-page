@@ -32,7 +32,8 @@ function createlist() {
     itemLink.innerHTML = `<a href="#${section.id}" class="menu__link">${section.dataset.nav}</a>`;
     itemLink.addEventListener("click", (event) => {
       event.preventDefault();
-      section.scrollIntoView({ behavior: "smooth" });
+      section.scrollIntoView({ behavior: "smooth" , 
+     block: 'center'});
     });
     item.appendChild(itemLink);
     fragment.appendChild(item);
@@ -44,26 +45,13 @@ createlist();
  const sec2 = document.getElementById('section2');
  const sec3 = document.getElementById('section3');
  
-function scroll(){
-    itemLink.addEventListener ('click', (evt) =>{
-        evt.preventDefault()
-        const selected = document.getElementById(evt.target.getAttribute("herf").subString(1))
-        selected.scrollIntoView({
-            behavior: "smooth" ,
-            block: "center"
-        })
-    })
-    
-}
-
-
 function active(section){
 const activeElement = section.getBoundingClientRect();
 return (
-    activeElement.top >= 0 && activeElement.top < 200
+    activeElement.top >= -350 && activeElement.top < 500
 );
 }
-document.addEventListener('scroll', function makeactive() {
+document.addEventListener('scroll', function makeActive() {
     for (const section of sections){
         if( active(section)) {
             section.classList.add("your-active-class");

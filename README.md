@@ -7,6 +7,7 @@ converting a web-page from a static project to an interactive one.
  
 - used javascript to add a navigation bar to the different sections
 - select active section when scrolling 
+- made page responsive for smaller screens 
 
 ## Resources 
 - https://www.w3schools.com/default.asp
