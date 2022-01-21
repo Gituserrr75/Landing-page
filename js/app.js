@@ -41,25 +41,24 @@ function createlist() {
   navBar.appendChild(fragment);
 }
 createlist();
- const sec1 = document.getElementById('section1');
- const sec2 = document.getElementById('section2');
- const sec3 = document.getElementById('section3');
  
 function active(section){
 const activeElement = section.getBoundingClientRect();
-return (
-    activeElement.top >= -350 && activeElement.top < 500
-);
+return activeElement.top > -100 && activeElement.top <= 500
 }
-document.addEventListener('scroll', function makeActive() {
-    for (const section of sections){
-        if( active(section)) {
-            section.classList.add("your-active-class");
-        }
-        else {section.classList.remove("your-active-class");}
+window.addEventListener("scroll", makeActive);
+function makeActive() {
+for (const section of sections){
+  const link = document.querySelector(`a[href="#${section.id}"]`);
+if( active(section)) {
+  section.classList.add("your-active-class");
+  link.classList.add("active");
+}else {
+     section.classList.remove("your-active-class");
+     link.classList.remove("active");
     }
+  }
 }
-)
 
 //  * End Global Variables
 //  * Start Helper Functions

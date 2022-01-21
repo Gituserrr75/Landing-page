@@ -232,4 +232,6 @@ section.your-active-class .landing__container::after {
     margin-bottom: 5px;
     height: 2px;
   }
-  
+  .active  {
+      background-color: gray;
+  }
